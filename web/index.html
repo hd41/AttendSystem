@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Online Attendance System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    </head>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        function clear1(){
+            document.getElementById('usr').value="";
+        }
+        function clear2(){
+            document.getElementById('pass').value="";
+        }
+        var ok=true;
+        function validate(){
+            var pass1=document.getElementById('pass').value;
+            var pass2=document.getElementById('rpass').value;
+            Console.log(pass1+" "+pass2);
+            if(pass1!=pass2){
+                document.getElementById('pass').style.borderColor = "#E34234";
+                document.getElementById('rpass').style.borderColor = "#E34234";
+                document.getElementById('mark').innerHTML="Password doesn't match";
+                ok = false;
+            }
+            return ok;
+        }
+    </script>
+    <style type="text/css">
+        body{
+            background-image: url("/home/hd/Documents/easePay/bigstock-Online-payment-15985247.jpg");
+            background-color: #cccccc;
+        }
+        
+        .top-nav{
+                margin-top: 0%;
+		background: #482156;
+		position: fixed;
+                z-index: 1;
+		width: 100%;
+	}
+	.options{
+		margin-left: 70%;
+		margin-right: 2%;
+		padding-bottom: 2%;
+	}
+	.btn{
+		border-radius: 1%;
+	}
+        .buttons{
+            margin-left: 15%;
+            margin-top: 5%;
+        }
+        .newAccount{
+            margin-top: 13%;
+            padding: 2% 1% 1% 1%;
+            background: #482156;
+            margin-left: 60%;
+            margin-right: 2%;
+            border: 1px black solid;
+            border-radius: 5%;
+        }
+        .b{
+            color: #2EBBCC;
+            font-size: 20px;
+        }   
+        .form-field span { 
+            display: inline-block; margin-right: 10px;
+        }
+        h2{
+            color: burlywood;
+            font-size: 24px;
+        }
+        #mark{
+            background: #482156;
+            height: 22px;
+            font-size: 20px;
+            color: white;
+        }
+        input{
+            border-radius: 5%;
+        }
+        h3{
+            color: #2BB0BF;
+            font-size: 18px;
+            font-family: cursive;
+        }
+        
+        
+    </style>
+    
+    <body>
+        <div class="container-fluid">
+		<div class=top-nav>
+			<h2 class="icon" style="margin-left:10%; font-size:60px;">Online Attendance System</h2>
+			<div class="options" id="option">
+                            <form action="login.jsp" method="post">
+                                <input type="text" name="usr" size="20" id="usr" value="Enter Username or Phone" onclick="clear1()">
+                                <input type="password" name="pwd" size="15" id="pass" value="Enter Password" onclick="clear2()">
+                                <input type="submit" class="btn btn-primary" value="Log In">
+                            </form>
+                        </div>
+		</div>
+	</div>
+        <div class="newAccount">
+            <h2>Hello! User</h2><br>
+            <h3>Register to the Name you can easily trust on.</h3><br>
+            <form action="register.jsp" onsubmit="return validate()" method="post">
+                <table cellspacing="40">
+                    <tr>
+                        <td><div class="b">First Name</div></td>
+                        <td><input type="text" name="fname" size="30" required>
+                    </tr>
+                    <tr>
+                        <td><div class="b">Last Name</div></td>
+                        <td><input type="text" name="lname" size="30" required>
+                    </tr>
+                    <tr>
+                        <td><div class="b">Phone</div></td>
+                        <td><input type="text" name="phone" size="30" required>
+                    </tr>
+                    <tr>
+                        <td><div class="b">Email</div></td>
+                        <td><input type="email" name="mail" size="30" required>
+                    </tr>
+                    <tr>
+                        <td><div class="b">Password</div></td>
+                        <td><input type="password" id="pass" name="pass" size="30" required>
+                    </tr>
+                    <tr>
+                        <td><div class="b">Retype Password &nbsp;</div></td>
+                        <td><input type="password" id="rpass" name="rpass" size="30" required></td>
+                    </tr>
+                    <tr><td></td><td><div id="mark"></div></td></tr>
+                </table>
+                
+                <div class="form-field">
+                    <span><div class="b"> Gender</div></span>
+                    <span style="margin-left:20%;"><div class="b"> <input type="radio" name="gender" value="Male" checked/> Male</div></span>
+                    <span><div class="b"> <input type="radio" name="gender" value="Female"/> Female</div></span>
+                </div>
+                
+                <div class="buttons">
+                    <input class="btn btn-danger" type="submit" value="Create Account">
+                    <a href="login.jsp" style="margin-left: 20%;"> Already have an account</a>
+                </div>
+            </form>
+            
+        </div>
+    </body>
+</html>
